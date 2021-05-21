@@ -19,7 +19,9 @@ class ConcreteStrategyLine(Strategy):
             hue = 'Player'
 
             df = pd.read_csv(data)
+            plt.clf()
             plt.figure(figsize=(15,8))
+            plt.title(title)
 
             if len(x_label) == 1:
                 if x_label[0] == "":
@@ -37,7 +39,6 @@ class ConcreteStrategyLine(Strategy):
                     df = df[[time1, y_label]]
 
                     plt.plot(df[time1], df[y_label])
-                    plt.title(title)
                     plt.ylabel(y_label)
                     plt.xlabel(x_label)
                     plt.grid()
@@ -50,7 +51,6 @@ class ConcreteStrategyLine(Strategy):
                     compareDf = pd.concat([newDf, compareDf])
 
                 new_y_label = "Total " + y_label + "s"
-
                 compareDf[new_y_label] = compareDf[[y_label, groupby]].groupby(groupby).cumsum()
                 sns.lineplot(x=time2, y=new_y_label, hue=hue, data=compareDf)
                 # plt.show()

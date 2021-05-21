@@ -11,6 +11,8 @@ class ConcreteStrategyScatter(Strategy):
         else:
             df = pd.read_csv(data)
 
+            plt.clf()
+            plt.title(title)
             plt.scatter(df[x_label], df[y_label])
             plt.ylabel(y_label)
             plt.xlabel(x_label)

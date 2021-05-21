@@ -11,6 +11,7 @@ class ConcreteStrategyBar(Strategy):
             print("Missing values")
         else:
             df = pd.read_csv(data)
+            plt.clf()
             if y_label == "Count" or y_label == "count" or y_label == "COUNT":
                 df = df.groupby([x_label]).size().reset_index(name=y_label)
 

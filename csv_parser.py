@@ -3,6 +3,10 @@ from DataVisualizer import DataVisualizer as dv
 from Lineplot import ConcreteStrategyLine
 from BarPlot import ConcreteStrategyBar
 from ScatterPlot import ConcreteStrategyScatter
+from Boxplot import ConcreteStrategyBox
+from Distplot import ConcreteStrategyDist
+from Geomap import ConcreteStrategyGeo
+from Linreg import ConcreteStrategyLin
 
 
 def getColumns(csvFile):
@@ -52,6 +56,22 @@ def dataVisualizerCommunicator(input):
         cs = ConcreteStrategyBar()
         name = "bar.png"
         print("bar")
+    if input['plot'] == 'box':
+        cs = ConcreteStrategyBox()
+        name = "box.png"
+        print("box")
+    if input['plot'] == 'dist':
+        cs = ConcreteStrategyDist()
+        name = "dist.png"
+        print("dist")
+    if input['plot'] == 'geo':
+        cs = ConcreteStrategyGeo()
+        name = "geo.png"
+        print("geo")
+    if input['plot'] == 'lin':
+        cs = ConcreteStrategyLin()
+        name = "lin.png"
+        print("lin")
 
     dvv = dv(cs)
     dvv.getPlots(input['csv'], input['x_label'], input['y_label'], input['title'], input['arg1'])
