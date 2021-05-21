@@ -1,8 +1,8 @@
 import pandas as pd
 from DataVisualizer import DataVisualizer as dv
-#from Lineplot import ConcreteStrategyLine
-#from BarPlot import ConcreteStrategyBar
-#from ScatterPlot import ConcreteStrategyScatter
+from Lineplot import ConcreteStrategyLine
+from BarPlot import ConcreteStrategyBar
+from ScatterPlot import ConcreteStrategyScatter
 
 
 def getColumns(csvFile):
@@ -39,7 +39,7 @@ def dataPrep(data, UPLOAD_FOLDER):
 def dataVisualizerCommunicator(input):
     print(input)
     name = ""
-    cs = ConcreteStrategyScatter
+    cs = ""
     if input['plot'] == 'scatter':
         cs = ConcreteStrategyScatter()
         name = "scatter.png"
@@ -54,6 +54,6 @@ def dataVisualizerCommunicator(input):
         print("bar")
 
     dvv = dv(cs)
-    dvv.getPlots(input['csv'], input['x_label'], input['y_label'], input['title'], input['start'], input['end'], input['time1'], input['time2'], input['groupby'], input['hue'], input['sort'], input['head'])
+    dvv.getPlots(input['csv'], input['x_label'], input['y_label'], input['title'], input['arg1'])
     return name
 

@@ -22,7 +22,7 @@ def uploadCSV():
         return jsonify(getColumns(current_csv))
 
 
-@app.route("/visualize", methods=['GET', 'POST'])
+@app.route("/image", methods=['GET', 'POST'])
 @cross_origin()
 def displayCSV():
     finished = False

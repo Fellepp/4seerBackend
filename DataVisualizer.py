@@ -10,8 +10,8 @@ class DataVisualizer():
     def strategy(self) -> Strategy:
         return self._strategy
 
-    def getPlots(self, data, x_label, y_label, title, start, end, time1, time2, groupby, hue, sort, head) -> None:
-        self._strategy.getPlot(data, x_label, y_label, title, start, end, time1, time2, groupby, hue, sort, head)
+    def getPlots(self, data, x_label, y_label, title, arg1) -> None:
+        self._strategy.getPlot(data, x_label, y_label, title, arg1)
 
 
 
